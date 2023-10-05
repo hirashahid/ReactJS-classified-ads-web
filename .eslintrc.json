@@ -1,18 +1,7 @@
 {
   "root": true,
-  "extends": [
-    "plugin:react-hooks/recommended",
-    "prettier",
-    "react-app",
-    "react-app/jest",
-    "plugin:jsx-a11y/recommended"
-  ],
-  "plugins": [
-    "prettier",
-    "simple-import-sort",
-    "@typescript-eslint",
-    "jsx-a11y"
-  ],
+  "extends": ["next", "prettier"],
+  "plugins": ["prettier", "simple-import-sort", "@typescript-eslint", "jsx-a11y", "testing-library"],
   "globals": {
     "localStorage": true,
     "window": true
@@ -23,19 +12,9 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": [
-          "src"
-        ],
-        "moduleDirectory": [
-          "node_modules",
-          "src/"
-        ],
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "paths": ["src"],
+        "moduleDirectory": ["node_modules", "src/"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
@@ -51,15 +30,11 @@
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
     "import/prefer-default-export": "off",
-    "jest/no-focused-tests": "error",
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
         "required": {
-          "some": [
-            "nesting",
-            "id"
-          ]
+          "some": ["nesting", "id"]
         }
       }
     ],
@@ -67,23 +42,13 @@
       "error",
       {
         "required": {
-          "some": [
-            "nesting",
-            "id"
-          ]
+          "some": ["nesting", "id"]
         }
       }
     ],
-    "max-params": [
-      "error",
-      3
-    ],
+    "max-params": ["error", 3],
     "no-param-reassign": "off",
-    "no-restricted-syntax": [
-      "error",
-      "LabeledStatement",
-      "WithStatement"
-    ],
+    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
     "no-shadow": "off",
     "no-tabs": "error",
     "no-unused-vars": "error",
@@ -97,11 +62,7 @@
       },
       {
         "blankLine": "always",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
+        "prev": ["const", "let", "var"],
         "next": [
           "block",
           "block-like",
@@ -135,35 +96,17 @@
       },
       {
         "blankLine": "never",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
-        "next": [
-          "const",
-          "let",
-          "var"
-        ]
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
       },
       {
         "blankLine": "always",
         "prev": "*",
-        "next": [
-          "if",
-          "try",
-          "while",
-          "switch"
-        ]
+        "next": ["if", "try", "while", "switch"]
       },
       {
         "blankLine": "always",
-        "prev": [
-          "if",
-          "try",
-          "while",
-          "switch"
-        ],
+        "prev": ["if", "try", "while", "switch"],
         "next": "*"
       }
     ],
@@ -178,9 +121,7 @@
         "namedComponents": "arrow-function"
       }
     ],
-    "react/jsx-filename-extension": [
-      0
-    ],
+    "react/jsx-filename-extension": [0],
     "react/jsx-no-useless-fragment": 2,
     "react/jsx-props-no-spreading": "off",
     "react/no-unused-prop-types": 1,
@@ -189,41 +130,23 @@
       "error",
       {
         "groups": [
-          [
-            "^react",
-            "^@?\\w"
-          ],
-          [
-            "^test-utils"
-          ],
+          ["^react", "^@?\\w"],
+          ["^test-utils"],
           [
             "^(@|domains|shared|actions|assets|components|constants|containers|fixtures|helpers|hooks|reducers|routes|selectors|services|stylesheets|translations)(/.*|$)"
           ],
-          [
-            "^\\u0000"
-          ],
-          [
-            "^\\.\\.(?!/?$)",
-            "^\\.\\./?$"
-          ],
-          [
-            "^\\./(?=.*/)(?!/?$)",
-            "^\\.(?!/?$)",
-            "^\\./?$"
-          ],
-          [
-            "^.+\\.s?css$"
-          ]
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.s?css$"]
         ]
       }
     ],
-    "testing-library/await-async-query": 1,
-    "testing-library/await-async-utils": 1,
-    "testing-library/no-await-sync-query": 1,
+    "testing-library/await-async-queries": 1,
+    "testing-library/no-await-sync-queries": 1,
     "testing-library/no-debugging-utils": 1,
     "testing-library/no-dom-import": 0,
     "testing-library/no-node-access": 1,
-    "testing-library/no-render-in-setup": 2,
     "testing-library/no-unnecessary-act": 1,
     "testing-library/no-wait-for-multiple-assertions": 1,
     "testing-library/no-wait-for-side-effects": 1,
@@ -232,20 +155,12 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "project": [
-          "./tsconfig.json"
-        ]
+        "project": ["./tsconfig.json"]
       },
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/jsx-runtime"
-      ],
+      "extends": ["plugin:@typescript-eslint/recommended", "plugin:react/jsx-runtime"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": [
           "error",
@@ -259,30 +174,16 @@
           "warn",
           {
             "selector": "default",
-            "format": [
-              "camelCase"
-            ]
+            "format": ["camelCase"]
           },
           {
             "selector": "variable",
-            "format": [
-              "camelCase",
-              "PascalCase",
-              "UPPER_CASE"
-            ]
+            "format": ["camelCase", "PascalCase", "UPPER_CASE"]
           },
           {
-            "selector": [
-              "variable",
-              "parameter"
-            ],
-            "types": [
-              "boolean"
-            ],
-            "format": [
-              "PascalCase",
-              "UPPER_CASE"
-            ],
+            "selector": ["variable", "parameter"],
+            "types": ["boolean"],
+            "format": ["PascalCase", "UPPER_CASE"],
             "prefix": [
               "is",
               "should",
@@ -305,47 +206,31 @@
           },
           {
             "selector": "parameter",
-            "format": [
-              "camelCase"
-            ],
+            "format": ["camelCase"],
             "leadingUnderscore": "allow"
           },
           {
             "selector": "typeLike",
-            "format": [
-              "PascalCase"
-            ]
+            "format": ["PascalCase"]
           },
           {
             "selector": "interface",
-            "format": [
-              "PascalCase"
-            ]
+            "format": ["PascalCase"]
           },
           {
             "selector": "enum",
-            "format": [
-              "PascalCase"
-            ]
+            "format": ["PascalCase"]
           },
           {
             "selector": "enumMember",
-            "format": [
-              "UPPER_CASE"
-            ]
+            "format": ["UPPER_CASE"]
           },
           {
             "selector": "property",
-            "format": [
-              "camelCase",
-              "snake_case",
-              "PascalCase"
-            ]
+            "format": ["camelCase", "snake_case", "PascalCase"]
           }
         ],
-        "@typescript-eslint/no-shadow": [
-          "error"
-        ],
+        "@typescript-eslint/no-shadow": ["error"],
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/prefer-enum-initializers": "error",
         "consistent-return": "off",

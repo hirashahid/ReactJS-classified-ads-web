@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 
-import { FooterSitemapLinks } from 'components/Footer';
-import { Navbar } from 'components/Navbar';
+import { Footer } from 'components/Footer';
+import { Header } from 'components/Header';
 
 import './globals.css';
 
@@ -20,9 +20,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }): JSX.Element =>
   return (
     <html lang="en">
       <body className={lato.className}>
-        <Navbar />
+        <Header />
         {children}
-        <FooterSitemapLinks />
+        <Footer />
       </body>
     </html>
   );

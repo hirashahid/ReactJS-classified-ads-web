@@ -1,16 +1,23 @@
-import { HomePage } from 'components/HomePage';
-import { ItemCard } from 'components/ItemCard';
+import useTranslation from 'next-translate/useTranslation';
 
-const Home = (): JSX.Element => (
-  <>
-    <HomePage />
-    <div className="bg-white grid md:grid-cols-4 gap-5 p-5">
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-    </div>
-  </>
-);
+import { HomeScreen } from 'components/HomeScreen';
+import { ItemCard } from 'components/ItemCard';
+import { ItemGroup } from 'components/ItemGroup';
+import { TranslationNamespaces } from 'constants/translationNamespaces';
+const Home = (): JSX.Element => {
+  const { t } = useTranslation(TranslationNamespaces.COMMON);
+
+  return (
+    <>
+      <HomeScreen />
+      <ItemGroup title={t('bestSellers')}>
+        <ItemCard />
+        <ItemCard />
+        <ItemCard />
+        <ItemCard />
+      </ItemGroup>
+    </>
+  );
+};
 
 export default Home;

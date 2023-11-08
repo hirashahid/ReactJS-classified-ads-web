@@ -23,6 +23,15 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/floatingLabel.tsx", "src/app/floatingLabel.tsx", "src/app/page.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/floatingLabel.tsx",
+    "src/app/floatingLabel.tsx",
+    "src/app/page.jsx",
+    "i18n.js"
+  ],
   "exclude": ["node_modules"]
 }

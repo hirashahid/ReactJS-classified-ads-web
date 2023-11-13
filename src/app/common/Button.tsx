@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Button as FlowbiteButton, ButtonProps as FlowbiteButtonProps } from 'flowbite-react';
 
 type ButtonProps = FlowbiteButtonProps & {
-  variant?: 'primary' | 'secondary' | 'outline' | 'link';
+  variant?: 'primary' | 'secondary' | 'outline' | 'link' | 'iconLink' | 'textLink';
 };
 
 const BUTTON_VARIANTS = {
@@ -15,6 +15,9 @@ const BUTTON_VARIANTS = {
   outline:
     'text-primary-200 bg-transparent border border-primary-200 hover:bg-gray-200 focus:ring-2 focus:ring-transparent-500 focus:ring-opacity-50 hover:text-black  disabled:pointer-events-none',
   link: 'bg-transparent min-w-fit border-none focus:ring-0 hover:text-white disabled:pointer-events-none',
+  iconLink:
+    ' border min-w-fit focus:ring-0 hover:text-white disabled:pointer-events-none rounded-lg bg-white hover:bg-gray-200',
+  textLink: 'text-sm  hover:underline border-none outline-none focus:',
 } as const;
 
 export const Button = ({ variant = 'primary', children, className, ...props }: ButtonProps): JSX.Element => (

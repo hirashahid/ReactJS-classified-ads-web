@@ -33,8 +33,27 @@ export const SignInComponent = ({
 }: SignInProps): JSX.Element => {
   const [isPhoneSignIn, setIsPhoneSignIn] = useState(false);
   const { t } = useTranslation(TranslationNamespaces.COMMON);
-  const handleFormSubmit = (): void => {
-    console.log('working');
+  const handleFormSubmit = async (values: unknown): Promise<void> => {
+    try {
+      const response = await fetch('http://localhost:4000/auth/login', {
+        method: 'POST',
+        headers: {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          'Content-Type': 'application/json',
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          'Http-X-Api-Token': '1a3b5c7d9eb1a2r3b4e5qx8y9z0w1v2',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        console.error(response.body);
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('API error:', error);
+    }
   };
 
   return (
